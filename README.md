@@ -10,7 +10,24 @@ A web ui that connects with every ai provider possible. Built using JS, and Gola
 - Gemini
 - lots of stuff I don't know about yet
 
-### I like TTS so we should integrate with some TTS providers too
+### TTS (need to research)
+- Piper
+- WebAPI
 
+
+### Image Gen
+- Meh
+
+### Web Search
+- Meh
+
+### Functions
+- Maybe?
+
+### User Accounts
+- Maybe?
+
+### Database integrations?
+- Hmmm.
 
 More to come this weekend. (also accepting contributions)
