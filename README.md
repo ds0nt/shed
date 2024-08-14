@@ -1,5 +1,5 @@
 # shed
-A web ui that connects with every ai provider possible. Built using JS, and Golang, in a practical manner. Similar to all the other ones, but without typescript.
+A web ui that connects with every ai provider possible. Built using JS, and Golang, in a practical manner. Similar to all the other ones, but without typescript. (feel free to convince me to use typescript)
 
 ## Providers In Mind
 
