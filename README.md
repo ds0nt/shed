@@ -2,9 +2,29 @@
 
 Under construction :construction:
 
+## Installation
+
+```
+git clone https://github.com/ds0nt/shed
+
+```
+
+
 ## What is Shed?
 
-Shed is a web ui that connects to multiple AI providers
+Shed is a web app that is just another web ui for LLMs.
+
+This one is written in Go and Vue3 javascript, so if those are your favorite languages, please join in the fun.
+
+### Phase 1 (hopefully finished this weekend)
+
+Get a working prototype with a two providers and a basic ui.
+
+### Phase 2 (hopefully in a few weeks)
+
+- Add more basic features
+- Make it pretty
+- Add providers
 
 ## Providers In Mind
 
