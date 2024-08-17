@@ -1,5 +1,10 @@
-# shed
-A web ui that connects with every ai provider possible. Built using JS, and Golang, in a practical manner. Similar to all the other ones, but without typescript. (feel free to convince me to use typescript - or that this is a bad idea)
+# Shed
+
+Under construction :construction:
+
+## What is Shed?
+
+Shed is a web ui that connects to multiple AI providers
 
 ## Providers In Mind
 
@@ -16,10 +21,10 @@ A web ui that connects with every ai provider possible. Built using JS, and Gola
 
 
 ### Image Gen
-- Meh
+- Maybe
 
 ### Web Search
-- Meh
+- Maybe
 
 ### Functions
 - Maybe?
@@ -28,6 +33,6 @@ A web ui that connects with every ai provider possible. Built using JS, and Gola
 - Maybe?
 
 ### Database integrations?
-- Hmmm.
+- Of course
 
 More to come this weekend. (also accepting contributions)
