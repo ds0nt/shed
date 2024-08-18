@@ -1,6 +1,6 @@
 # Shed
 
-Under construction :construction:
+Under construction :construction: - help welcome - not for profit
 
 ## Installation
 
