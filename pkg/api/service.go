@@ -43,6 +43,7 @@ func (s *Service) StartServer() {
 	s.Echo.GET("/conversations", s.listConversationsHandler)
 	s.Echo.POST("/conversations", s.createConversationHandler)
 	s.Echo.GET("/conversations/:id", s.getConversationHandler)
+	s.Echo.POST("/send-message/:id", s.sendMessageHandler)
 
 	// Start the server
 	s.Echo.Start(":8080")
@@ -50,15 +51,16 @@ func (s *Service) StartServer() {
 
 // listConversationsHandler returns a list of chat conversations with an AI
 func (s *Service) listConversationsHandler(c echo.Context) error {
+	conversations := []*conversations.Conversation{}
 	// Get the list of chat conversations from the storage mechanism
-	chats, err := s.Store.List(c.Request().Context(), "conversations")
+	err := s.Store.ListJSON(c.Request().Context(), "conversations", &conversations)
 	if err != nil {
 		log.Errorf("Failed to get chat conversations: %v", err)
 		return c.String(http.StatusInternalServerError, "Failed to get chat conversations")
 	}
 
 	// Return the list of chat conversations as JSON
-	return c.JSON(http.StatusOK, chats)
+	return c.JSON(http.StatusOK, conversations)
 }
 
 // createConversationHandler creates a new chat conversation with an AI
@@ -97,4 +99,37 @@ func (s *Service) getConversationHandler(c echo.Context) error {
 
 	// Return the chat conversation as JSON
 	return c.JSON(http.StatusOK, chat)
+}
+
+// sendMessageHandler sends a message in a chat conversation with an AI
+func (s *Service) sendMessageHandler(c echo.Context) error {
+	// Get the chat conversation ID from the request
+	id := c.Param("id")
+	key := conversations.NewConversationKeyFromString(id)
+
+	// Get the chat conversation from the storage mechanism
+	chat := &conversations.Conversation{}
+	if err := s.Store.ReadJSON(c.Request().Context(), "conversations", key.String(), chat); err != nil {
+		log.Errorf("Failed to get chat conversation: %v", err)
+		return c.String(http.StatusInternalServerError, "Failed to get chat conversation")
+	}
+
+	// Get the message from the request
+	message := &conversations.Message{}
+	if err := c.Bind(message); err != nil {
+		log.Errorf("Failed to bind message: %v", err)
+		return c.String(http.StatusInternalServerError, "Failed to bind message")
+	}
+
+	// Add the message to the chat conversation
+	chat.Messages = append(chat.Messages, *message)
+
+	// Save the chat conversation
+	if err := s.Store.UpdateJSON(c.Request().Context(), "conversations", key.String(), chat); err != nil {
+		log.Errorf("Failed to update chat conversation: %v", err)
+		return c.String(http.StatusInternalServerError, "Failed to update chat conversation")
+	}
+
+	// Return success
+	return c.String(http.StatusOK, "Message sent")
 }

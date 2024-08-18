@@ -1,6 +1,10 @@
 package conversations
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 type ConversationKey struct {
 	Owner string
@@ -13,11 +17,14 @@ func NewConversationKey(owner string, id int) ConversationKey {
 func (k *ConversationKey) String() string {
 	return fmt.Sprintf("%s:%d", k.Owner, k.ID)
 }
-
 func NewConversationKeyFromString(s string) ConversationKey {
 	var owner string
 	var id int
-	fmt.Sscanf(s, "%s:%d", &owner, &id)
+	parts := strings.Split(s, ":")
+	if len(parts) == 2 {
+		owner = parts[0]
+		id, _ = strconv.Atoi(parts[1])
+	}
 	return ConversationKey{Owner: owner, ID: id}
 }
 
