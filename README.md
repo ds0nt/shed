@@ -1,6 +1,17 @@
 # Shed
 
-Under construction :construction: - help welcome - not for profit - no favoritism of model providers - opinionated code from the Golang ninja Dan. Typescript is not welcome here.
+This is my contribution to the AI community. 
+
+It seems open-web ui does not care to put gemini as a first class citizen in connections. https://github.com/open-webui/open-webui/discussions/3660
+
+This is just plain wrong and unfair. So I am building my own, and I hope you will join me and it us.
+
+Under construction :construction: 
+
+## Features
+- Built in good languages: (Go, Javascript, and Vue3)
+- 
+- Completely free forever
 
 ## Installation
 
