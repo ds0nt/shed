@@ -1,11 +1,5 @@
 # Shed
 
-This is my contribution to the AI community. 
-
-It seems open-web ui does not care to put gemini as a first class citizen in connections. https://github.com/open-webui/open-webui/discussions/3660
-
-This is just plain wrong and unfair. So I am building my own, and I hope you will join me and it us.
-
 Under construction :construction: 
 
 ## Features
