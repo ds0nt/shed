@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
+	log.InitLogger()
 	log.Info("Starting Shed")
-
 	svc := api.NewService()
 	svc.StartServer()
 }

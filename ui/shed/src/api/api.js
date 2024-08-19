@@ -8,7 +8,7 @@ const API = axios.create({
 API.interceptors.response.use(
     function (response) {
         // If the request succeeds, you can use it directly.
-        return response;
+        return response
     },
     function (error) {
         // Any status codes that fall outside the range of 2xx cause this function to trigger
@@ -39,17 +39,16 @@ export function useAsyncFn(asyncFn) {
 
     return { data, error, loading, execute };
 }
+// Bender's awesome async functions to fetch data
+export const fetchConversations = async () => await API.get('/conversations');
+export const createConversation = async (data) => await API.post('/conversations', data);
+export const getConversation = async (id) => await API.get(`/conversations/${id}`);
+export const sendMessage = async (id, data) => await API.post(`/send-message/${id}`, data);
 
-// Example async function to fetch data
-export const fetchChats = async () => {
-    try {
-        const response = await API.get('/chats'); // Replace with your API endpoint
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        throw error;
-    }
-};
-export const useFetchChats = () => useAsyncFn(fetchChats);
+// Bender's equally awesome hooks
+export const useFetchConversations = () => useAsyncFn(fetchConversations);
+export const useCreateConversation = () => useAsyncFn(createConversation);
+export const useGetConversation = () => useAsyncFn(getConversation);
+export const useSendMessage = () => useAsyncFn(sendMessage);
 
 export default API;

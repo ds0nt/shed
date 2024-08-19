@@ -2,11 +2,12 @@
     <v-navigation-drawer v-model="drawer" app>
         <v-toolbar flat>
             <v-text-field flat solo hide-details label="Search" prepend-inner-icon="mdi-magnify"></v-text-field>
-            <v-btn color="primary">New Chat</v-btn>
+            <v-btn @click="appStore.createConversation">
+             >New Chat</v-btn>
         </v-toolbar>
         <v-divider></v-divider>
         <v-list dense>
-            <v-list-item v-for="item in items" :key="item.title" link>
+            <v-list-item v-for="item in appStore.conversations" :key="item.title" link>
                 <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
                 </v-list-item-icon>
@@ -19,5 +20,11 @@
 </template>
 
 <script setup>
-import { drawer, items } from './AppDrawer'
+import { onMounted } from 'vue';
+import { drawer } from './AppDrawer'
+import { useAppStore } from '@/stores/app'
+
+const appStore = useAppStore()
+
+onMounted(appStore.refreshConversations)
 </script>

@@ -2,40 +2,39 @@ package conversations
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 )
 
 type ConversationKey struct {
 	Owner string
-	ID    int
+	ID    string
 }
 
-func NewConversationKey(owner string, id int) ConversationKey {
+func NewConversationKey(owner string, id string) ConversationKey {
 	return ConversationKey{Owner: owner, ID: id}
 }
 func (k *ConversationKey) String() string {
-	return fmt.Sprintf("%s:%d", k.Owner, k.ID)
+	return fmt.Sprintf("%s:%s", k.Owner, k.ID)
 }
 func NewConversationKeyFromString(s string) ConversationKey {
 	var owner string
-	var id int
+	var id string
 	parts := strings.Split(s, ":")
 	if len(parts) == 2 {
 		owner = parts[0]
-		id, _ = strconv.Atoi(parts[1])
+		id = parts[1]
 	}
 	return ConversationKey{Owner: owner, ID: id}
 }
 
 type Conversation struct {
-	Id       int       `json:"id"`
+	Id       string    `json:"id"`
 	Name     string    `json:"name"`
 	Messages []Message `json:"messages"`
 }
 
 type Message struct {
-	ID        int    `json:"id"`
+	ID        string `json:"id"`
 	Text      string `json:"text"`
 	From      string `json:"from"`
 	Timestamp int64  `json:"timestamp"`
