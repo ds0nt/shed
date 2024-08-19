@@ -1,6 +1,6 @@
 # Shed
 
-Under construction :construction: - help welcome - not for profit - no favoritism of model providers
+Under construction :construction: - help welcome - not for profit - no favoritism of model providers - opinionated code from the Golang ninja Dan.
 
 ## Installation
 
