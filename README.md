@@ -52,9 +52,9 @@ Get a working prototype with a two providers and a basic ui.
 - Maybe?
 
 ### User Accounts
-- Maybe?
+- yes
 
 ### Database integrations?
-- Of course
+- yes
 
 More to come this weekend. (also accepting contributions)
