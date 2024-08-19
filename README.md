@@ -1,6 +1,6 @@
 # Shed
 
-Under construction :construction: - help welcome - not for profit - no favorites
+Under construction :construction: - help welcome - not for profit - no favoritism of model providers
 
 ## Installation
 
