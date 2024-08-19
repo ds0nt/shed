@@ -20,6 +20,8 @@ This one is written in Go and Vue3 javascript, so if those are your favorite lan
 
 Get a working prototype with a two providers and a basic ui.
 
+### Phase 1.5 Finish finishing phase 1 =]
+
 ### Phase 2 (hopefully in a few weeks)
 
 - Add more basic features
