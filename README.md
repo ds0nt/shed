@@ -3,9 +3,8 @@
 Under construction :construction: 
 
 ## Features
-- Built in good languages: (Go, Javascript, and Vue3)
-- 
-- Completely free forever
+- Backend built with Golang
+- Frontend built with Vue3
 
 ## Installation
 
